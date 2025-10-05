@@ -1,5 +1,5 @@
 //// RED TEAM SECURITY ANALYSIS:
-// This file implements focused security testing against the go-crypto library,
+// This file implements focused security testing against harpocrates,
 // designed to identify and prevent attack vectors in cryptographic operations.
 //
 // THREAT MODEL:
@@ -11,7 +11,7 @@
 // - Nonce/IV reuse and cryptographic oracle attacks
 // - Buffer overflow and memory corruption
 // - AAD manipulation and authenticated encryption bypass
-// - Information leakage through error messagesurity_test.go: Essential Security Testing Suite for go-crypto NEMESIS
+// - Essential Security Testing Suite Harpocrates, NEMESIS
 // - Key rotation state machine race conditions (zero-downtime attacks)
 // - Memory management buffer pool exploitation
 // - Advanced side-channel timing analysis

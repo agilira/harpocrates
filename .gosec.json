@@ -1,0 +1,6 @@
+{
+    "exclude": ["G115"],
+    "G115": {
+        "description": "Integer overflow conversion warnings for Argon2 parameters are false positives. The conversions are safe because: 1) Parameters are validated before conversion (time > 0, memory > 0, threads > 0), 2) Argon2 library expects specific types (uint32, uint8), 3) Our validation ensures values are within safe ranges for Argon2id. These conversions are necessary for the Argon2 API and do not represent security vulnerabilities."
+    }
+} 

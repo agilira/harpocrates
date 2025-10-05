@@ -1,0 +1,18 @@
+coverage:
+  status:
+    project:
+      default:
+        target: 85%
+        threshold: 2%
+    patch:
+      default:
+        target: auto
+        threshold: 2%
+
+comment:
+  layout: "reach, diff, flags, files"
+  behavior: default
+
+ignore:
+  - "**/*_test.go"
+  - "examples/**"
