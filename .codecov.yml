@@ -15,4 +15,4 @@ comment:
 
 ignore:
   - "**/*_test.go"
-  - "examples/**"
+  - ".ps1/**"
