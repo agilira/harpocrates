@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build script for Harpocrates cryptographic library
-# Preserves debugging information by default (OpenSSF Silver requirement)
+# Supports reproducible builds and debug symbol preservation
 
 set -e
 
@@ -16,11 +16,16 @@ NC='\033[0m' # No Color
 # Parse command line arguments
 STRIP_SYMBOLS=false
 VERBOSE=false
+REPRODUCIBLE=false
 
 while [[ $# -gt 0 ]]; do
   case $1 in
     -s|--strip)
       STRIP_SYMBOLS=true
+      shift
+      ;;
+    -r|--reproducible)
+      REPRODUCIBLE=true
       shift
       ;;
     -v|--verbose)
@@ -30,9 +35,10 @@ while [[ $# -gt 0 ]]; do
     -h|--help)
       echo "Usage: $0 [OPTIONS]"
       echo "Options:"
-      echo "  -s, --strip     Strip debug symbols (production build)"
-      echo "  -v, --verbose   Enable verbose output"
-      echo "  -h, --help      Show this help message"
+      echo "  -s, --strip        Strip debug symbols (production build)"
+      echo "  -r, --reproducible Enable reproducible builds (deterministic output)"
+      echo "  -v, --verbose      Enable verbose output"
+      echo "  -h, --help         Show this help message"
       echo ""
       echo "By default, debug symbols are preserved for development."
       exit 0
@@ -49,23 +55,44 @@ mkdir -p "$BUILD_DIR"
 
 # Build flags
 BUILD_FLAGS=""
+LDFLAGS=""
+
 if [ "$STRIP_SYMBOLS" = true ]; then
-  BUILD_FLAGS="-ldflags='-w -s'"
+  LDFLAGS="-w -s"
+fi
+
+if [ "$REPRODUCIBLE" = true ]; then
+  if [ -n "$LDFLAGS" ]; then
+    LDFLAGS="$LDFLAGS -buildid="
+  else
+    LDFLAGS="-buildid="
+  fi
+  export CGO_ENABLED=0
+  export SOURCE_DATE_EPOCH=1
+  echo -e "${YELLOW}Building ${BINARY_NAME} (reproducible build)...${NC}"
+elif [ "$STRIP_SYMBOLS" = true ]; then
   echo -e "${YELLOW}Building ${BINARY_NAME} (production - debug symbols stripped)...${NC}"
 else
   echo -e "${YELLOW}Building ${BINARY_NAME} (development - debug symbols preserved)...${NC}"
 fi
 
-# Build command
-if [ "$VERBOSE" = true ]; then
-  echo "go build $BUILD_FLAGS -o $BUILD_DIR/$BINARY_NAME ."
+if [ -n "$LDFLAGS" ]; then
+  BUILD_FLAGS="-ldflags='$LDFLAGS'"
 fi
 
-if [ -n "$BUILD_FLAGS" ]; then
-  go build -ldflags="-w -s" -o "$BUILD_DIR/$BINARY_NAME" .
+# Build command with reproducible builds
+REPRODUCIBLE_FLAGS="-trimpath"
+if [ "$STRIP_SYMBOLS" = true ]; then
+  BUILD_CMD="go build -trimpath -ldflags='-w -s -buildid=' -o $BUILD_DIR/$BINARY_NAME ."
 else
-  go build -o "$BUILD_DIR/$BINARY_NAME" .
+  BUILD_CMD="go build -trimpath -ldflags='-buildid=' -o $BUILD_DIR/$BINARY_NAME ."
 fi
+
+if [ "$VERBOSE" = true ]; then
+  echo "$BUILD_CMD"
+fi
+
+eval "$BUILD_CMD"
 
 echo -e "${GREEN}Build completed successfully!${NC}"
 echo "Binary location: $BUILD_DIR/$BINARY_NAME"

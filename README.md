@@ -169,13 +169,12 @@ In the halls of Alexandria's great library, scholars would invoke Harpocrates be
 .\build.ps1              # Development build (debug symbols preserved)  
 .\build.ps1 -Strip       # Production build (debug symbols stripped)
 ```
+All build scripts use `-trimpath` and `-buildid=` flags to ensure bit-for-bit reproducible builds
 
 ### Running Tests
 
-Use the Makefile for comprehensive testing:
-
 ```bash
-make test         # Run complete test suite (38+ test files)
+make test         # Use the Makefile for comprehensive testing
 make check        # Run all quality checks (tests + linting + security)
 make security     # Run security analysis and fuzz testing
 ```

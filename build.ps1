@@ -1,8 +1,9 @@
 # Build script for Harpocrates cryptographic library (PowerShell)
-# Preserves debugging information by default (OpenSSF Silver requirement)
+# Supports reproducible builds and debug symbol preservation
 
 param(
     [switch]$Strip,
+    [switch]$Reproducible,
     [switch]$Verbose,
     [switch]$Help
 )
@@ -14,9 +15,10 @@ $BuildDir = ".\bin"
 if ($Help) {
     Write-Host "Usage: .\build.ps1 [OPTIONS]"
     Write-Host "Options:"
-    Write-Host "  -Strip      Strip debug symbols (production build)"
-    Write-Host "  -Verbose    Enable verbose output" 
-    Write-Host "  -Help       Show this help message"
+    Write-Host "  -Strip        Strip debug symbols (production build)"
+    Write-Host "  -Reproducible Enable reproducible builds (deterministic output)"
+    Write-Host "  -Verbose      Enable verbose output" 
+    Write-Host "  -Help         Show this help message"
     Write-Host ""
     Write-Host "By default, debug symbols are preserved for development."
     exit 0
@@ -48,10 +50,11 @@ if ($Verbose) {
 }
 
 try {
-    if ($BuildFlags) {
-        & go build -ldflags="-w -s" -o $OutputPath .
+    # Reproducible builds with trimpath and buildid
+    if ($Strip) {
+        & go build -trimpath -ldflags="-w -s -buildid=" -o $OutputPath .
     } else {
-        & go build -o $OutputPath .
+        & go build -trimpath -ldflags="-buildid=" -o $OutputPath .
     }
     
     if ($LASTEXITCODE -ne 0) {
