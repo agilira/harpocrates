@@ -9,9 +9,9 @@
 - **Out of Scope**: Host system security, network transport security, application-level logic using the library
 
 ### Security Requirements
-- **Confidentiality**: AES-256-GCM and ChaCha20-Poly1305 encryption protect data confidentiality
+- **Confidentiality**: AES-256-GCM encryption protects data confidentiality
 - **Integrity**: Authenticated encryption with additional data (AEAD) ensures data integrity  
-- **Authenticity**: Cryptographic signatures and MACs prevent data tampering
+- **Authenticity**: Cryptographic authentication prevents data tampering
 - **Forward Secrecy**: Key rotation mechanisms prevent retrospective decryption
 - **Side-Channel Resistance**: Implementation resistant to timing and cache-based attacks
 

@@ -13,7 +13,7 @@ Acknowledgments: https://github.com/agilira/harpocrates/blob/main/docs/security-
 # For reporting security vulnerabilities in the Harpocrates cryptographic library
 # Please use our private vulnerability reporting process via:
 # 1. GitHub Security Advisories (preferred): https://github.com/agilira/harpocrates/security/advisories/new  
-# 2. Email: security@agilira.io (PGP encrypted preferred)
+# 2. Email: security@agilira.com (PGP encrypted preferred)
 #
 # We follow responsible disclosure and provide security acknowledgments
 # Response time: Within 14 days for initial response
