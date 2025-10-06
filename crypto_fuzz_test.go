@@ -1,3 +1,9 @@
+// crypto_fuzz_test.go: Comprehensive fuzz testing suite for cryptographic functions.
+//
+// Copyright (c) 2025 AGILira - A. Giordano
+// Series: an AGILira library
+// SPDX-License-Identifier: MPL-2.0
+
 package crypto
 
 import (
