@@ -158,6 +158,18 @@ The young god knew that true power lay not in the message itself, but in ensurin
 
 In the halls of Alexandria's great library, scholars would invoke Harpocrates before transcribing their most precious knowledge, knowing that the god of silence would ensure their wisdom reached only worthy hands across the centuries.
 
+### Building
+
+```bash
+# Unix/Linux/macOS
+./build.sh              # Development build (debug symbols preserved)
+./build.sh --strip      # Production build (debug symbols stripped)
+
+# Windows PowerShell
+.\build.ps1              # Development build (debug symbols preserved)  
+.\build.ps1 -Strip       # Production build (debug symbols stripped)
+```
+
 ### Running Tests
 
 Use the Makefile for comprehensive testing:
