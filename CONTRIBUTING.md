@@ -50,11 +50,38 @@ All contributions must meet the following mandatory requirements:
 - **Code Coverage**: Minimum 90% test coverage for new code
 - **Quality Gates**: All `make check` targets must pass
 
-### Legal Requirements
+### Legal Requirements - Developer Certificate of Origin (DCO)
+
+#### Philosophy
+We welcome contributions from everyone - creativity is not bound by titles or credentials. However, final implementation decisions remain with the AGILira team to ensure project coherence and security standards.
+
+#### Developer Certificate of Origin
+By contributing to this project, you certify that:
+
+1. The contribution was created in whole or in part by you and you have the right to submit it under the open source license indicated in the file; or
+2. The contribution is based upon previous work that, to the best of your knowledge, is covered under an appropriate open source license and you have the right under that license to submit that work with modifications, whether created in whole or in part by you; or
+3. The contribution was provided directly to you by some other person who certified (1), (2) or (3) and you have not modified it.
+4. You understand and agree that this project and the contribution are public and that a record of the contribution (including all personal information you submit with it, including your sign-off) is maintained indefinitely and may be redistributed consistent with this project or the open source license(s) involved.
+
+#### How to Sign Your Commits
+All commits must be signed off to indicate acceptance of the DCO:
+
+```bash
+git commit -s -m "Your commit message"
+```
+
+Or add manually:
+```bash
+git commit -m "Your commit message
+
+Signed-off-by: Your Name <your.email@example.com>"
+```
+
+#### Additional Legal Requirements
 - **License Compliance**: All contributions must be compatible with Mozilla Public License 2.0
 - **Copyright Headers**: New files must include proper copyright headers
-- **Contributor License Agreement**: Contributors must agree to project CLA terms
 - **No Proprietary Code**: Contributions must not include proprietary or copyrighted code
+- **AGILira Decision Authority**: Final implementation decisions remain with AGILira team
 
 ## Development Process
 
@@ -76,14 +103,16 @@ All contributions must meet the following mandatory requirements:
     make security    # Run security analysis
     make check       # Run all quality checks
     ```
-8.  **Commit Your Changes**: Use conventional commit format:
+8.  **Sign and Commit Your Changes**: Use DCO sign-off with conventional commit format:
     ```bash
-    git commit -m "feat: Add HKDF key derivation support
+    git commit -s -m "feat: Add HKDF key derivation support
 
     - Implement RFC 5869 compliant HKDF-SHA256
     - Add comprehensive security tests
     - Include fuzz testing for edge cases
-    - Update documentation and examples"
+    - Update documentation and examples
+
+    Signed-off-by: Your Name <your.email@example.com>"
     ```
 9.  **Push to Your Fork**: Push your changes to your forked repository.
     ```bash
