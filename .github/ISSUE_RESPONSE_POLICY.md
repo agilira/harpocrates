@@ -46,4 +46,7 @@ For urgent issues or private security reports:
 - Response guaranteed within SLA timeframes above
 
 ---
+
+Harpocrates • an AGILira library
+
 *This policy ensures transparent and timely communication with the Harpocrates community.*

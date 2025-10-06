@@ -280,3 +280,7 @@ The combination of secure-by-design architecture, comprehensive testing, and con
 **Document Version**: 1.0  
 **Last Updated**: October 6, 2025  
 **Next Review**: April 6, 2026
+
+---
+
+Harpocrates • an AGILira library

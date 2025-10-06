@@ -283,4 +283,8 @@ go mod download -json github.com/agilira/harpocrates@v1.2.3
 **Effective Date**: October 6, 2025  
 **Next Review**: January 6, 2026  
 **Owner**: AGILira Security Team  
-**Approved By**: [Release Manager Name]
+**Approved By**: A. GIordano (AGILira)
+
+---
+
+Harpocrates • an AGILira library

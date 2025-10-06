@@ -34,4 +34,6 @@ Please see our [Security Policy](../SECURITY.md) for:
 
 ---
 
+Harpocrates • an AGILira library
+
 *Last updated: October 6, 2025*

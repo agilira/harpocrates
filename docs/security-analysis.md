@@ -110,3 +110,7 @@ Security analysis results are available in:
 - Artifacts (detailed SARIF reports)
 
 For security issues, please see our [Security Policy](../SECURITY.md).
+
+---
+
+Harpocrates • an AGILira library

@@ -280,3 +280,7 @@ AES-256-GCM AEAD Operations (with Cipher Caching)
 **Next Review**: January 6, 2026  
 **Approved By**: AGILira Security Team  
 **Classification**: Public
+
+---
+
+Harpocrates • an AGILira library

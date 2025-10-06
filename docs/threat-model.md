@@ -354,4 +354,8 @@ crypto.GetKeyFingerprint(key)
 **Classification**: Internal Use  
 **Next Review**: January 6, 2026  
 **Owner**: AGILira Security Team  
-**Approved By**: [Security Team Lead]
+**Approved By**: A.Giordano (AGILira)
+
+---
+
+Harpocrates • an AGILira library
