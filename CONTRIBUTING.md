@@ -25,6 +25,37 @@ If you encounter a bug, please open an issue on our GitHub repository. A well-do
 
 If you have an idea for a new feature or an improvement to an existing one, please open an issue to start a discussion. This allows us to align on the proposal before any significant development work begins.
 
+## Requirements for Acceptable Contributions
+
+All contributions must meet the following mandatory requirements:
+
+### Code Quality Standards
+- **Makefile Compliance**: All code must pass `make check` which includes:
+  - Go formatting (`gofmt`, `goimports`)
+  - Linting (`golint`, `go vet`)
+  - Security analysis (`gosec`, `govulncheck`)
+  - Static analysis (`staticcheck`, CodeQL)
+- **Documentation**: Public functions and types must have proper Go documentation comments
+
+### Security Requirements
+- **Security Review**: All cryptographic changes require security review
+- **Vulnerability Scanning**: Code must pass `govulncheck` vulnerability scanning
+- **Input Validation**: All public APIs must validate inputs and handle errors securely
+- **Memory Safety**: No unsafe operations without explicit security justification
+- **Side-Channel Resistance**: Cryptographic code must consider timing attack resistance
+
+### Testing Requirements
+- **All Tests Must Pass**: Run `make test` - all tests must pass before submission
+- **Security Checks**: Run `make security` - no security issues allowed
+- **Code Coverage**: Minimum 90% test coverage for new code
+- **Quality Gates**: All `make check` targets must pass
+
+### Legal Requirements
+- **License Compliance**: All contributions must be compatible with Mozilla Public License 2.0
+- **Copyright Headers**: New files must include proper copyright headers
+- **Contributor License Agreement**: Contributors must agree to project CLA terms
+- **No Proprietary Code**: Contributions must not include proprietary or copyrighted code
+
 ## Development Process
 
 1.  **Fork the Repository**: Start by forking the main Harpocrates repository to your own GitHub account.
@@ -33,34 +64,76 @@ If you have an idea for a new feature or an improvement to an existing one, plea
     git clone https://github.com/YOUR_USERNAME/harpocrates.git
     cd harpocrates
     ```
-3.  **Create a Branch**: Create a new branch for your changes. Use a descriptive name (e.g., `fix/....` or `feature/....`).
+3.  **Create a Branch**: Create a new branch for your changes. Use a descriptive name (e.g., `fix/security-validation` or `feature/key-rotation`).
     ```bash
     git checkout -b your-branch-name
     ```
-4.  **Make Changes**: Write your code. Ensure your code adheres to Go's best practices.
-5.  **Format Your Code**: Run `gofmt` to ensure your code is correctly formatted.
+4.  **Make Changes**: Write your code following the requirements above.
+5.  **Run Quality Checks**: Ensure your code meets all quality standards by running:
     ```bash
-    gofmt -w .
+    make test        # Run all tests
+    make lint        # Run linting and formatting checks
+    make security    # Run security analysis
+    make check       # Run all quality checks
     ```
-6.  **Add Tests**: If you are adding a new feature or fixing a bug, please add corresponding unit or integration tests. All tests must pass.
+8.  **Commit Your Changes**: Use conventional commit format:
     ```bash
-    go test ./...
+    git commit -m "feat: Add HKDF key derivation support
+
+    - Implement RFC 5869 compliant HKDF-SHA256
+    - Add comprehensive security tests
+    - Include fuzz testing for edge cases
+    - Update documentation and examples"
     ```
-7.  **Commit Your Changes**: Use a clear and descriptive commit message.
-    ```bash
-    git commit -m "feat: Add support for XYZ feature"
-    ```
-8.  **Push to Your Fork**: Push your changes to your forked repository.
+9.  **Push to Your Fork**: Push your changes to your forked repository.
     ```bash
     git push origin your-branch-name
     ```
-9.  **Open a Pull Request**: Open a pull request from your branch to the `main` branch of the official Harpocrates repository. Provide a clear title and description for your PR, referencing any related issues.
+10. **Open a Pull Request**: Open a pull request from your branch to the `main` branch, ensuring all CI checks pass.
+
+## Coding Standards
+
+### Go Style Guidelines
+- Follow [Go Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments)
+- Use meaningful variable and function names
+- Prefer composition over inheritance
+- Keep functions small and focused (max 50 lines recommended)
+- Use Go modules for dependency management
+
+### Error Handling
+- Always handle errors explicitly
+- Use structured errors with proper error codes
+- Provide context in error messages
+- Avoid panic() in library code
+
+### Security Coding Practices
+- Validate all inputs at API boundaries
+- Use secure random number generation (`crypto/rand`)
+- Clear sensitive data from memory when possible
+- Avoid timing-dependent operations in cryptographic code
+- Use constant-time comparisons for sensitive data
+
+### Documentation Standards
+- All public APIs must have godoc comments
+- Include usage examples in complex functions
+- Document security considerations for cryptographic functions
+- Keep README.md updated with new features
 
 ## Pull Request Guidelines
 
-- **One PR per Feature**: Each pull request should address a single bug or feature.
-- **Clear Description**: Explain the "what" and "why" of your changes.
-- **Passing Tests**: Ensure that the full test suite passes.
-- **Documentation**: If your changes affect public APIs or behavior, update the relevant documentation (in-code comments, `README.md`, or files in the `docs/` directory).
+- **One PR per Feature**: Each pull request should address a single bug or feature
+- **Clear Description**: Explain the "what" and "why" of your changes
+- **Passing Tests**: Ensure that the full test suite passes with `make test`
+- **Security Review**: Cryptographic changes require additional security review
+- **Documentation**: Update relevant documentation (in-code comments, `README.md`, or `docs/` directory)
+- **Performance**: Include benchmarks for performance-critical changes
+- **Breaking Changes**: Clearly document any breaking API changes
+
+## Security Vulnerability Reports
+
+For security vulnerabilities, please follow our [Security Policy](SECURITY.md):
+- Use GitHub Security Advisories for private reporting
+- Email security@agilira.com for urgent issues
+- Allow 90 days for coordinated disclosure
 
 Thank you for helping make Harpocrates better!
