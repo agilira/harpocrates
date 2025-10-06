@@ -158,6 +158,18 @@ The young god knew that true power lay not in the message itself, but in ensurin
 
 In the halls of Alexandria's great library, scholars would invoke Harpocrates before transcribing their most precious knowledge, knowing that the god of silence would ensure their wisdom reached only worthy hands across the centuries.
 
+### Running Tests
+
+Use the Makefile for comprehensive testing:
+
+```bash
+make test         # Run complete test suite (38+ test files)
+make check        # Run all quality checks (tests + linting + security)
+make security     # Run security analysis and fuzz testing
+```
+
+**Cross-platform:** Use `Makefile` on Unix systems or `Makefile.ps1` on Windows PowerShell.
+
 ## Documentation
 
 - [API Reference](docs/api.md) - Complete API documentation with examples for all functions
