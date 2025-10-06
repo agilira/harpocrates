@@ -3,12 +3,12 @@
 
 Designed for Nemesis, Harpocrates delivers secure and well-tested primitives for encryption, decryption, key and nonce management, and key fingerprinting using AES-256-GCM with advanced optimizations including cipher caching, buffer pooling, and cache-line tuned algorithms.
 
-
 [![CI](https://github.com/agilira/harpocrates/actions/workflows/ci.yml/badge.svg)](https://github.com/agilira/harpocrates/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/agilira/harpocrates/actions/workflows/codeql.yml/badge.svg)](https://github.com/agilira/harpocrates/actions/workflows/codeql.yml)
 [![Security](https://img.shields.io/badge/Security-gosec-brightgreen)](https://github.com/agilira/harpocrates/actions/workflows/ci.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/agilira/harpocrates)](https://goreportcard.com/report/github.com/agilira/harpocrates)
 [![Test Coverage](https://codecov.io/gh/agilira/harpocrates/branch/main/graph/badge.svg)](https://codecov.io/gh/agilira/harpocrates)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/11266/badge?criteria=gold)](https://www.bestpractices.dev/projects/11266)
 
 **[Features](#features) • [Installation](#installation) • [Quick Examples](#quick-examples) • [Philosophy](#the-philosophy-behind-harpocrates) • [Documentation](#documentation) • [Security](#security) • [Performance](#performance)**
 
