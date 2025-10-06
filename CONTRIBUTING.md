@@ -165,4 +165,58 @@ For security vulnerabilities, please follow our [Security Policy](SECURITY.md):
 - Email security@agilira.com for urgent issues
 - Allow 90 days for coordinated disclosure
 
+## Project Governance
+
+### Governance Model
+Harpocrates follows an **Open Contribution, Controlled Implementation** model. We welcome contributions from the community while maintaining technical and strategic control under AGILira leadership to ensure security, quality, and project coherence.
+
+### Key Roles and Responsibilities
+
+#### Project Owner: AGILira
+- **Strategic Direction**: Defines project roadmap and priorities
+- **Final Decision Authority**: Makes ultimate decisions on feature implementation
+- **Security Oversight**: Ensures all security standards are met
+- **Release Management**: Controls release timing and content
+
+#### Core Team
+- **A. Giordano (Project Lead)**: Technical direction and architecture decisions
+- **AGILira Security Team**: Cryptographic review and security validation
+- **AGILira Engineering**: Code review and quality assurance
+
+#### Community Contributors
+- **Feature Proposals**: Submit ideas and enhancements via GitHub issues
+- **Code Contributions**: Implement features following DCO and quality standards
+- **Documentation**: Improve project documentation and examples
+- **Testing**: Contribute test cases and bug reports
+
+### Decision Making Process
+
+#### 1. Community Input Phase
+- Features and changes proposed via GitHub issues
+- Community discussion and feedback encouraged
+- Technical feasibility assessment by contributors
+
+#### 2. AGILira Evaluation Phase
+- Technical review by AGILira engineering team
+- Security assessment for cryptographic changes
+- Alignment with project goals and architecture
+
+#### 3. Implementation Decision
+- **Accepted**: AGILira approves implementation with specific requirements
+- **Deferred**: Good idea but not prioritized for current roadmap
+- **Declined**: Does not align with project goals or security requirements
+
+#### 4. Development and Review
+- Community implements with AGILira guidance
+- Code review by AGILira team required
+- Security review mandatory for cryptographic changes
+
+### Conflict Resolution
+- Technical disagreements resolved by AGILira technical leadership
+- Community concerns addressed through GitHub discussions
+- Appeal process: Direct communication with project lead for significant issues
+
+### Governance Evolution
+This governance model may evolve as the project grows, always maintaining AGILira's commitment to security excellence and community collaboration.
+
 Thank you for helping make Harpocrates better!
