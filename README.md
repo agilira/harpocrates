@@ -60,6 +60,12 @@ Harpocrates supports the latest two minor versions of Go (currently Go 1.24+ and
 go get github.com/agilira/harpocrates
 ```
 
+### Release Verification
+All releases are cryptographically signed with GitHub attestations. Verify authenticity:
+```bash
+gh attestation verify ./harpocrates-* --owner agilira
+```
+
 ## Quick Examples
 
 ### Basic Encryption/Decryption
@@ -178,8 +184,7 @@ make test         # Use the Makefile for comprehensive testing
 make check        # Run all quality checks (tests + linting + security)
 make security     # Run security analysis and fuzz testing
 ```
-
-**Cross-platform:** Use `Makefile` on Unix systems or `Makefile.ps1` on Windows PowerShell.
+Use `Makefile` on Unix systems or `Makefile.ps1` on Windows PowerShell.
 
 ## Documentation
 

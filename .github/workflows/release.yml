@@ -1,0 +1,84 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.24'
+
+    - name: Run tests
+      run: make test
+
+    - name: Run security checks
+      run: make security
+
+    - name: Build artifacts
+      run: |
+        mkdir -p dist
+        
+        # Build for multiple platforms
+        GOOS=linux GOARCH=amd64 go build -ldflags='-w -s -buildid=' -trimpath -o dist/harpocrates-linux-amd64 .
+        GOOS=linux GOARCH=arm64 go build -ldflags='-w -s -buildid=' -trimpath -o dist/harpocrates-linux-arm64 .
+        GOOS=darwin GOARCH=amd64 go build -ldflags='-w -s -buildid=' -trimpath -o dist/harpocrates-darwin-amd64 .
+        GOOS=darwin GOARCH=arm64 go build -ldflags='-w -s -buildid=' -trimpath -o dist/harpocrates-darwin-arm64 .
+        GOOS=windows GOARCH=amd64 go build -ldflags='-w -s -buildid=' -trimpath -o dist/harpocrates-windows-amd64.exe .
+        
+        # Create checksums
+        cd dist
+        sha256sum * > checksums.txt
+
+    - name: Generate build provenance attestation
+      uses: actions/attest-build-provenance@v1
+      with:
+        subject-path: 'dist/*'
+
+    - name: Generate SBOM attestation  
+      uses: actions/attest-sbom@v1
+      with:
+        subject-path: 'dist/*'
+        sbom-path: 'go.mod'
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: |
+          dist/*
+        body: |
+          ## Harpocrates ${{ github.ref_name }}
+          
+          Professional cryptographic library with AES-256-GCM encryption, zero-downtime key rotation, and HSM support.
+          
+          ### Installation
+          ```bash
+          go get github.com/agilira/harpocrates@${{ github.ref_name }}
+          ```
+          
+          ### Verification
+          Verify release authenticity using GitHub CLI:
+          ```bash
+          gh attestation verify ./harpocrates-* --owner agilira
+          ```
+          
+          ### Changes
+          See [CHANGELOG.md](https://github.com/agilira/harpocrates/blob/main/CHANGELOG.md) for details.
+        generate_release_notes: true
+        draft: false
+        prerelease: false
