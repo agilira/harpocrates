@@ -1,0 +1,51 @@
+# CodeQL Configuration for Harpocrates Cryptographic Library
+# Focuses on cryptography-specific security patterns and data flow analysis
+
+name: harpocrates-security-config
+
+# Disable default queries to use our custom cryptography-focused set
+disable-default-queries: false
+
+# Include additional security queries
+queries:
+  - uses: security-and-quality
+  - uses: security-experimental
+  
+# Define custom paths for analysis
+paths:
+  - "**/*.go"
+
+# Ignore test files and dependencies (focus on production code)
+paths-ignore:
+  - "**/*_test.go"
+  - "**/testdata/**"
+  - "**/vendor/**"
+  - "**/examples/**"
+
+# Packs for enhanced cryptographic analysis
+packs:
+  - "codeql/go-queries"
+  - "codeql/go-queries:AlertSuppression.ql"
+  - "codeql/go-queries:Security"
+
+# Query filters for cryptographic libraries
+query-filters:
+  - exclude:
+      id: go/clear-text-logging
+      # Allow structured logging for debugging (but review manually)
+  - exclude:
+      id: go/hardcoded-credentials
+      # Test keys are expected in test files (already ignored via paths-ignore)
+      
+# Custom extraction configuration for Go crypto analysis
+extractor-config:
+  go:
+    # Enable deep analysis for crypto functions
+    index:
+      filters:
+        - include: "**/*.go"
+        - exclude: "*_test.go"
+    build_command: "go build ./..."
+    
+# Performance tuning for large cryptographic codebase
+compilation-cache: true

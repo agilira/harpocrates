@@ -5,6 +5,7 @@ Designed for Nemesis, Harpocrates delivers secure and well-tested primitives for
 
 
 [![CI](https://github.com/agilira/harpocrates/actions/workflows/ci.yml/badge.svg)](https://github.com/agilira/harpocrates/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/agilira/harpocrates/actions/workflows/codeql.yml/badge.svg)](https://github.com/agilira/harpocrates/actions/workflows/codeql.yml)
 [![Security](https://img.shields.io/badge/Security-gosec-brightgreen)](https://github.com/agilira/harpocrates/actions/workflows/ci.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/agilira/harpocrates)](https://goreportcard.com/report/github.com/agilira/harpocrates)
 [![Test Coverage](https://codecov.io/gh/agilira/harpocrates/branch/main/graph/badge.svg)](https://codecov.io/gh/agilira/harpocrates)
@@ -45,6 +46,9 @@ Designed for Nemesis, Harpocrates delivers secure and well-tested primitives for
 - **Secure memory zeroization** for sensitive data protection
 - **Advanced error handling** with rich error context and structured error codes
 - **Comprehensive testing** with 90%+ coverage including boundary, stress, and integration tests
+- **Fuzz testing** with Go native fuzzer for discovering edge cases and security vulnerabilities
+- **CodeQL semantic analysis** for advanced SAST with data flow and taint analysis
+- **Multi-layered static analysis** combining gosec patterns with CodeQL deep analysis
 - **Secure by Design**: Red-team tested against attack vectors in cryptographic operations
 
 ## Compatibility and Support
