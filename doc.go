@@ -239,6 +239,40 @@
 //		}
 //	}
 //
+//
+// # Project Roadmap
+//
+// Harpocrates serves as the core cryptographic library for the Nemesis ecosystem and AGILira's
+// enterprise security infrastructure. The roadmap prioritizes production readiness, security
+// excellence, and enterprise-grade performance.
+//
+// ## 2025 Goals (Current Year)
+//   - Complete Nemesis vault integration and production deployment
+//   - Achieve FIPS 140-2 Level 3/4 compliance through HSM integration
+//   - Performance optimization: Target 1M+ operations/sec sustained throughput
+//   - Advanced key lifecycle management with automated rotation capabilities
+//   - Security hardening: Complete OpenSSF Best Practices Gold certification
+//   - Enterprise HSM support: Multi-vendor PKCS#11 integration (SafeNet, Thales, AWS)
+//
+// ## 2026 Expansion
+//   - Post-quantum cryptography research and experimental implementation
+//   - Multi-cloud HSM orchestration for hybrid deployments
+//   - Advanced streaming encryption for petabyte-scale data processing
+//   - Zero-trust architecture integration with Argus policy framework
+//   - Formal cryptographic verification using automated theorem proving
+//   - Performance benchmarking suite for continuous optimization validation
+//
+// ## Long-term Vision (2027+)
+//   - Industry-standard cryptographic library adoption beyond AGILira ecosystem
+//   - Academic partnerships for cutting-edge cryptographic research
+//   - Quantum-resistant algorithm integration following NIST standards
+//   - Global enterprise deployment with 99.999% availability requirements
+//   - Open-source community growth while maintaining AGILira security standards
+//
+// The roadmap emphasizes security-first development, enterprise reliability, and seamless
+// integration with the broader AGILira technology stack including Nemesis, Argus, and
+// future innovations in secure distributed systems.
+//
 // Copyright (c) 2025 AGILira
 // Series: an AGLIra library
 // SPDX-License-Identifier: MPL-2.0
