@@ -1,0 +1,20 @@
+Contact: mailto:security@agilira.com
+Contact: https://github.com/agilira/harpocrates/security/advisories/new
+Expires: 2026-10-06T23:59:59.000Z
+Encryption: https://github.com/agilira/harpocrates/blob/main/docs/pgp-key.asc
+Preferred-Languages: en, it
+Canonical: https://github.com/agilira/harpocrates/.well-known/security.txt
+Policy: https://github.com/agilira/harpocrates/blob/main/SECURITY.md
+Acknowledgments: https://github.com/agilira/harpocrates/blob/main/docs/security-acknowledgments.md
+
+# Security Contact Information for Harpocrates Cryptographic Library
+# This is a RFC 9116 compliant security.txt file
+# 
+# For reporting security vulnerabilities in the Harpocrates cryptographic library
+# Please use our private vulnerability reporting process via:
+# 1. GitHub Security Advisories (preferred): https://github.com/agilira/harpocrates/security/advisories/new  
+# 2. Email: security@agilira.io (PGP encrypted preferred)
+#
+# We follow responsible disclosure and provide security acknowledgments
+# Response time: Within 14 days for initial response
+# Security updates: Critical vulnerabilities patched within 48 hours
