@@ -119,7 +119,7 @@ bench: ## Run benchmarks
 	@echo "$(YELLOW)Running benchmarks...$(NC)"
 	go test -bench=. -benchmem ./...
 
-fuzz: ## Run fuzz tests for security validation
+fuzz: ## Run fuzz tests for security validation (dynamic analysis)
 	@echo "$(YELLOW)Running fuzz tests...$(NC)"
 	@echo "$(BLUE)Testing DecryptBytes with random inputs...$(NC)"
 	go test -fuzz=FuzzDecryptBytes -fuzztime=10s

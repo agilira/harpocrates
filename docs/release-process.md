@@ -62,6 +62,9 @@ Harpocrates follows [Semantic Versioning 2.0.0](https://semver.org/) specificati
 3. **Pre-release Testing**
    - Complete test suite execution (100% pass rate required)
    - Security scan validation (all tools: gosec, CodeQL, govulncheck)
+   - Dynamic analysis via fuzz testing: `make fuzz` (OpenSSF suggested practice)
+     - **Zero tolerance**: Any medium+ severity vulnerabilities found must be fixed before release
+     - Crash/panic analysis and exploitability assessment required
    - Performance benchmark comparison (no regressions)
    - Red team security testing execution
 
@@ -78,6 +81,7 @@ Harpocrates follows [Semantic Versioning 2.0.0](https://semver.org/) specificati
 2. **Manual Review**
    - Code review completion (100% coverage)
    - Security review for cryptographic changes
+   - Fuzz test results review (dynamic analysis validation)
    - Documentation accuracy verification
    - API compatibility validation
 
@@ -105,6 +109,31 @@ Harpocrates follows [Semantic Versioning 2.0.0](https://semver.org/) specificati
    - Module availability verification (`go get github.com/agilira/harpocrates@v1.2.3`)
    - Signature verification confirmation
    - Release note accuracy review
+
+### Dynamic Analysis Vulnerability Response
+
+When medium or higher severity vulnerabilities are discovered during dynamic analysis:
+
+1. **Immediate Actions** (within 24 hours)
+   - Stop the release process immediately
+   - Create private security issue for tracking
+   - Assess exploitability and assign CVSS score
+
+2. **Fix Development** (severity-based timeline)
+   - **High/Critical**: 7 days maximum
+   - **Medium**: 30 days maximum
+   - Develop fix in private branch
+   - Additional fuzz testing on fix
+
+3. **Validation Process**
+   - Re-run complete dynamic analysis suite
+   - Verify vulnerability is resolved
+   - Ensure no regression in security posture
+
+4. **Release Decision**
+   - Security team approval required for release
+   - Updated security documentation if needed
+   - Consider security advisory if vulnerability was exploitable
 
 ### Phase 4: Post-Release
 1. **Deployment Monitoring**
@@ -169,8 +198,11 @@ All releases must pass these quality gates:
 ### Security-Specific Gates
 1. **Vulnerability Scanning**: Clean govulncheck report
 2. **Static Analysis**: Clean CodeQL + gosec reports
-3. **Red Team Testing**: All security tests passing
-4. **Cryptographic Review**: Security team approval for crypto changes
+3. **Dynamic Analysis**: Fuzz testing execution (OpenSSF suggested practice)
+   - No crashes, panics, or exploitable conditions discovered
+   - Any medium+ severity findings must be resolved before release
+4. **Red Team Testing**: All security tests passing
+5. **Cryptographic Review**: Security team approval for crypto changes
 
 ### Performance Gates
 1. **Benchmark Validation**: All benchmarks within 5% of baseline

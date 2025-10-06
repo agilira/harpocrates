@@ -62,6 +62,19 @@ To help us address your report effectively, please include:
 - **Medium/Low Severity**: Patch within **30 days**
 - **Initial Response**: Within **14 days** (as required by OpenSSF Gold)
 
+### Dynamic Analysis Vulnerability Management
+
+Medium and higher severity exploitable vulnerabilities discovered through dynamic code analysis (including fuzz testing) must be fixed in a timely manner:
+
+- **High/Critical from Fuzz Testing**: Fixed within **7 days** of confirmation
+- **Medium Severity from Dynamic Analysis**: Fixed within **30 days** of confirmation
+- **Vulnerability Confirmation Process**: 
+  1. Fuzz test crash/panic analysis within **24 hours**
+  2. Exploitability assessment within **48 hours** 
+  3. Security team confirmation and severity assignment
+  4. Immediate patch development for medium+ severity issues
+- **Automated Detection**: CI fuzz testing prevents introduction of new dynamic analysis vulnerabilities
+
 ### Recognition
 
 Security researchers who report valid vulnerabilities will receive:
