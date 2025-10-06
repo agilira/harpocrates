@@ -49,7 +49,15 @@ Designed for Nemesis, Harpocrates delivers secure and well-tested primitives for
 - **Fuzz testing** with Go native fuzzer for discovering edge cases and security vulnerabilities
 - **CodeQL semantic analysis** for advanced SAST with data flow and taint analysis
 - **Multi-layered static analysis** combining gosec patterns with CodeQL deep analysis
-- **Secure by Design**: Red-team tested against attack vectors in cryptographic operations
+
+### **Professional Security Testing**
+- **Advanced red team analysis** - Multi-vector attack simulation with CWE-classified vulnerabilities
+- **Statistical timing analysis** - T-test significance testing for side-channel resistance  
+- **Race condition testing** - Concurrent state machine exploitation with 50+ goroutines
+- **Memory management exploitation** - Buffer pool exhaustion and cleanup verification
+- **Cryptographic attack vectors** - Weak keys, nonce reuse, AAD manipulation, buffer overflow
+- **NEMESIS-specific testing** - Vault-targeted attack scenarios and authenticated encryption bypass attempts
+- **Information leakage analysis** - Error message content validation and side-channel detection
 
 ## Compatibility and Support
 
@@ -190,6 +198,7 @@ Use `Makefile` on Unix systems or `Makefile.ps1` on Windows PowerShell.
 
 - [API Reference](docs/api.md) - Complete API documentation with examples for all functions
 - [Security Considerations](docs/security.md) - Security features, best practices, and compliance
+- [Security Testing Suite](crypto_security_test.go) - Professional red team analysis and attack vector testing
 - [Encryption & Decryption](docs/encryption.md) - Core encryption, binary data, and streaming functions  
 - [Key Management](docs/keyrotation.md) - Zero-downtime rotation, dual-KEK architecture, and lifecycle
 - [Hardware Security Modules](docs/hsm.md) - HSM integration, PKCS#11 support, and enterprise deployment
