@@ -7,7 +7,7 @@ Designed for Nemesis, Harpocrates delivers secure and well-tested primitives for
 [![CodeQL](https://github.com/agilira/harpocrates/actions/workflows/codeql.yml/badge.svg)](https://github.com/agilira/harpocrates/actions/workflows/codeql.yml)
 [![Security](https://img.shields.io/badge/Security-gosec-brightgreen)](https://github.com/agilira/harpocrates/actions/workflows/ci.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/agilira/harpocrates)](https://goreportcard.com/report/github.com/agilira/harpocrates)
-[![Test Coverage](https://codecov.io/gh/agilira/harpocrates/branch/main/graph/badge.svg)](https://codecov.io/gh/agilira/harpocrates)
+[![Test Coverage](https://img.shields.io/badge/coverage-90.7%25-brightgreen)](https://codecov.io/gh/agilira/harpocrates)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/11266/badge)](https://www.bestpractices.dev/projects/11266)
 
 **[Features](#features) • [Installation](#installation) • [Quick Examples](#quick-examples) • [Philosophy](#the-philosophy-behind-harpocrates) • [Documentation](#documentation) • [Security](#security) • [Performance](#performance)**
