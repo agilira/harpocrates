@@ -1,5 +1,6 @@
 # Harpocrates: High-Performance Professional Cryptography Library for Go
-### an AGILira library
+
+![Harpocrates Banner](assets/banner.png)
 
 Designed for Nemesis, Harpocrates delivers secure and well-tested primitives for encryption, decryption, key and nonce management, and key fingerprinting using AES-256-GCM with advanced optimizations including cipher caching, buffer pooling, and cache-line tuned algorithms.
 
