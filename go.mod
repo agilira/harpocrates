@@ -1,11 +1,11 @@
 module github.com/agilira/harpocrates
 
-go 1.25.0
+go 1.25.9
 
 require (
-	github.com/agilira/go-errors v1.1.1
+	github.com/agilira/go-errors v1.1.2
 	github.com/agilira/go-plugins v1.0.0
-	github.com/agilira/go-timecache v1.0.2
+	github.com/agilira/go-timecache v1.0.3
 	github.com/stretchr/testify v1.11.1
 	golang.org/x/crypto v0.50.0
 )
